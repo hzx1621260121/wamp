@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!-- 屏幕的缩放 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- 忽略页面中的数字识别为电话号码 -->
+		<meta name="format-detection" content="telephone=no">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<title>发现更多</title>
+
+	</head>
+
+	<body>
+		<figure class="conone">
+			<figure id="title4">
+				<h1>和平画廊</h1></figure>
+		</figure>
+		<section id="search">
+			<figure class="searchimg"><img src="images/searchbox.png" class="img-responsive"></figure>
+			<figure class="searchin"><input type="text" value="输入名字生成我的独家画廊" onfocus="if(this.value=='输入名字生成我的独家画廊'){value=''}" onblur="if(this.value==''){value='输入名字生成我的独家画廊'}">
+				<label><a href=""></a></label></figure>
+		</section>
+
+		<section class="img_gallery">
+
+			<figure class="main_img con2 content">
+				<ul class="lists">
+					<li>
+						<figure class="topimg">
+							<figure class="topinin"><img src="images/jiazuo/heping18.jpg" class="topinimg" id="pic0"></figure>
+						</figure>
+						<figure class="downtext">
+							<h1>《新世界》</h1>
+							<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+						</figure>
+					</li>
+					<li>
+						<figure class="topimg hover">
+							<figure class="topinin hover"><img src="images/jiazuo/heping10.jpg" class="topinimg" id="pic1"></figure>
+						</figure>
+						<figure class="downtext">
+							<h1>《新世界》</h1>
+							<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+						</figure>
+					</li>
+					<li>
+						<figure class="topimg">
+							<figure class="topinin"><img src="images/jiazuo/heping10.jpg" class="topinimg" id="pic2"></figure>
+						</figure>
+						<figure class="downtext">
+							<h1>《新世界》</h1>
+							<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+						</figure>
+					</li>
+					<li>
+						<figure class="topimg">
+							<figure class="topinin"><img src="images/jiazuo/heping22.jpg" class="topinimg" id="pic3"></figure>
+						</figure>
+						<figure class="downtext">
+							<h1>《新世界》</h1>
+							<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+						</figure>
+					</li>
+					<li>
+						<figure class="topimg">
+							<figure class="topinin"><img src="images/jiazuo/heping18.jpg" class="topinimg" id="pic4"></figure>
+						</figure>
+						<figure class="downtext">
+							<h1>《新世界》</h1>
+							<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+						</figure>
+					</li>
+				</ul>
+				<a href="javascript:;" id="btn_prev"></a>
+				<a href="javascript:;" id="btn_next"></a>
+			</figure>
+
+		</section>
+		<footer></footer>
+		<script src="js/moreall.js"></script>
+		<script>
+			var ihei = $(".searchimg img").height();
+			$(".searchin").css("height", ihei + "px");
+			$(".searchin input").css("height", ihei + "px");
+			/*$(".topinimg").load(
+				function(){
+					alert("123")
+					var owidth = $(".topinimg").width();
+						var ohei = $(".topinimg").height();
+						if(owidth > ohei) {
+							$(".topinimg").parent().parent().addClass("hover");
+							$(".topinimg").parent().addClass("hover");
+
+						}
+				}
+			)*/
+			$(document).ready(function() {
+
+				$(".img_gallery").hover(function() {
+					$("#btn_prev,#btn_next").fadeIn()
+				}, function() {
+					$("#btn_prev,#btn_next").fadeOut()
+				});
+
+				$dragBln = false;
+
+				$(".main_img").touchSlider({
+					flexible: true,
+					speed: 500,
+					btn_prev: $("#btn_prev"),
+					btn_next: $("#btn_next"),
+					paging: $(".point a"),
+					counter: function(e) {
+						$(".point a").removeClass("on").eq(e.current - 1).addClass("on"); //图片顺序点切换
+						$(".img_font span").hide().eq(e.current - 1).show(); //图片文字切换
+					}
+				});
+
+				$(".main_img").bind("mousedown", function() {
+					$dragBln = false;
+				});
+
+				$(".main_img").bind("dragstart", function() {
+					$dragBln = true;
+				});
+
+				$(".main_img a").click(function() {
+					if($dragBln) {
+						return false;
+					}
+				});
+
+				timer = setInterval(function() {
+					$("#btn_next").click();
+				}, 5000);
+
+				$(".img_gallery").hover(function() {
+					clearInterval(timer);
+				}, function() {
+					timer = setInterval(function() {
+						$("#btn_next").click();
+					}, 5000);
+				});
+
+				$(".main_img").bind("touchstart", function() {
+					clearInterval(timer);
+				}).bind("touchend", function() {
+					timer = setInterval(function() {
+						$("#btn_next").click();
+					}, 5000);
+				});
+
+			});
+				$(".topinimg").each(function(){//each:为每个匹配元素规定运行的函数。
+					h=$(this).height();
+					w=$(this).width();
+					if(w < h) {
+						//console.log('宽<高');
+						$(this).parent().parent().addClass("hover");
+						$(this).parent().addClass("hover");
+					}else{
+						//console.log('宽>高');
+						$(this).parent().parent().removeClass("hover");
+						$(this).parent().removeClass("hover");
+					}
+				});
+		</script>
+	</body>
+
+</html>

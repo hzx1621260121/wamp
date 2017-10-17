@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!-- 屏幕的缩放 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- 忽略页面中的数字识别为电话号码 -->
+		<meta name="format-detection" content="telephone=no">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<title>佳作赏析</title>
+	</head>
+
+	<body>
+		<figure class="conone">
+			<figure id="title4">
+				<h1>佳作赏析</h1></figure>
+		</figure>
+		<section id="search">
+			<figure class="searchimg"><img src="images/searchbox.png" class="img-responsive"></figure>
+			<figure class="searchin"><input type="text" placeholder="输入名字生成我的独家画廊" onfocus="if(this.placeholder=='输入名字生成我的独家画廊'){placeholder=''}" onblur="if(this.placeholder==''){placeholder='输入名字生成我的独家画廊'}">
+				<label><a></a></label></figure>
+		</section>
+		<section class="con2 content">
+			<ul class="lists">
+				<!--<li>
+					<figure class="topimg">
+						<figure class="topinin"><img src="images/jiazuo/heping18.jpg" class="topinimg"></figure>
+					</figure>
+					<figure class="downtext">
+						<h1>《新世界》</h1>
+						<span>2014年安信宝贝和平绘</span><span>大贝贝</span>
+					</figure>
+				</li>-->
+			</ul>
+		</section>
+		<footer>
+			<ul>
+				<li>
+					<a href="index.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item1"></figure>首页</a>
+				</li>
+				<li>
+					<a href="rules.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item2"></figure>赛事规则</a>
+				</li>
+				<li>
+					<a href="product.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item3"></figure>作品集锦</a>
+				</li>
+				<li>
+					<a href="comments.html" class="hover">
+						<figure class="footerimg"><img src="images/icon01.png" class="item4 hover"></figure>你我画廊</a>
+				</li>
+			</ul>
+		</footer>
+		<figure id="mask1"></figure>
+		<figure class="maskbg maskbg14">
+			<figure class="close"></figure>
+			<figure class="masktext2">很遗憾，未能找到搜索结果</figure>
+
+		</figure>
+		<script src="js/productall.js"></script>
+		<script>
+			var ihei = $(".searchimg img").height();
+			$(".searchin").css("height", ihei + "px");
+			$(".searchin input").css("height", ihei + "px");
+			/*$(".topinimg").load(
+				function(){
+					alert("123")
+					var owidth = $(".topinimg").width();
+						var ohei = $(".topinimg").height();
+						if(owidth > ohei) {
+							$(".topinimg").parent().parent().addClass("hover");
+							$(".topinimg").parent().addClass("hover");
+
+						}
+				}
+			)*/
+			$("#mask1,.close").click(
+				function() {
+					$("#mask1").hide();
+					$(".maskbg").hide();
+				}
+			);
+			$("#search a").click(
+				function() {
+					if($("#search input").val().length == 0) {
+						$(".maskbg14").show();
+						$("#mask1").show();
+					} else {
+						window.location.href = "more.html";
+					}
+				}
+			);
+			/*window.onload = function() {
+				setTimeout(
+					function() {
+						var oname =$(".topinimg")
+						var owidth = oname.width();
+						var ohei = oname.height();
+						var h='';
+						for(var i=0;i<oname.length;i++){
+						h=oname[i].height;
+						console.log(owidth);
+						console.log(h);
+						}
+						if(owidth < h) {
+
+							$(".topinimg").parent().parent().addClass("hover");
+							$(".topinimg").parent().addClass("hover");
+						}
+					}, 500
+				)
+
+			};*/
+			
+			
+			
+
+		</script>
+	</body>
+
+</html>

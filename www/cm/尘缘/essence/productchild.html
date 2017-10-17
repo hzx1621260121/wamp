@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!-- 屏幕的缩放 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- 忽略页面中的数字识别为电话号码 -->
+		<meta name="format-detection" content="telephone=no">
+		<!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+		<title>作品集锦-详情页</title>
+	</head>
+
+	<body>
+		<header>
+			<figure class="topleft">
+				<h1><span>作品编码:</span>0100001000</h1>
+				<ul>
+					<li><span>作者姓名：</span>杨洁婷</li>
+					<li><span>作者性别：</span>女</li>
+					<li><span>作者年龄：</span>8岁</li>
+					<li><span>作者组别：</span>A组</li>
+					<li><span>作者学校：</span>瑞程学校瑞程学校瑞程学校瑞程学校瑞程学校</li>
+					<li><span>指导老师：</span>张三</li>
+				</ul>
+				<figure class="clearfix"></figure>
+				<figure class="piaobox">
+					<figure class="piaobtn"></figure>
+					<figure class="piaotext">123666</figure>
+				</figure>
+			</figure>
+		</header>
+		<figure id="title8">
+			<h1>共创和平世界</h1>
+		</figure>
+		<figure class="shrein shrein1">
+			<h1></h1>
+			<p>分享</p>
+		</figure>
+		<figure class="con3">
+			<p>“安信宝贝和平绘”作为安信特色公益客户服务活动，是安信证券主动承担社会责任，积极发扬公益精神的重要体现。</p>
+		</figure>
+		<figure class="con6"><img src="images/pici1.jpg" class="img-responsive"></figure>
+		<footer>
+			<ul>
+				<li>
+					<a href="index.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item1"></figure>首页</a>
+				</li>
+				<li>
+					<a href="rules.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item2"></figure>赛事规则</a>
+				</li>
+				<li>
+					<a class="hover" href="product.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item3 hover"></figure>作品集锦</a>
+				</li>
+				<li>
+					<a href="comments.html">
+						<figure class="footerimg"><img src="images/icon01.png" class="item4 "></figure>你我画廊</a>
+				</li>
+			</ul>
+		</footer>
+		<figure id="mask"></figure>
+		<!--<figure class="maskbg maskbg13">
+			<figure class="close"></figure>
+			<figure class="masktext2">点击微信页面右上角按钮，即可分享内容！</figure>
+
+		</figure>-->
+		<figure class="maskbg maskbg4">
+			<figure class="close"></figure>
+			<figure class="share">
+				<ul>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn1.png" class="img-responsive"></figure>
+							<figure class="sharetext">微信好友</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn2.png" class="img-responsive"></figure>
+							<figure class="sharetext">朋友圈</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn3.png" class="img-responsive"></figure>
+							<figure class="sharetext">短信</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn4.png" class="img-responsive"></figure>
+							<figure class="sharetext">QQ好友</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn5.png" class="img-responsive"></figure>
+							<figure class="sharetext">QQ空间</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure class="shareimg"><img src="images/iconn6.png" class="img-responsive"></figure>
+							<figure class="sharetext">新浪微博</figure>
+						</a>
+					</li>
+				</ul>
+			</figure>
+		</figure>
+
+		<script src="js/productall.js"></script>
+		<script type="text/javascript">
+			$(".piaobtn").click(
+				function(){
+					if($(this).hasClass("hover")){
+						$(this).removeClass("hover")
+					}else{
+						$(this).addClass("hover")
+					}
+				}
+			);
+			$(".shrein").click(
+				function(){
+					$("#mask").show();
+					$(".maskbg4").show();
+				}
+			);
+			$(".close,#mask").click(
+				function(){
+					$("#mask").hide();
+					$(".maskbg4").hide();
+				}
+			)
+		</script>
+
+	</body>
+
+</html>

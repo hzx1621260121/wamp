@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Sign Up</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			body,
+			.mui-content {
+				background-color: #3cc4b6;
+			}
+			
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 32%;
+				color: white;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 68%;
+				font-size: 0.8em;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.mui-input-group,
+			.mui-table-view {
+				background-color: rgba(0, 0, 0, 0);
+			}
+			
+			.mui-table-view:before,
+			.mui-input-group:before,
+			.mui-input-row:after,
+			.mui-input-group:after {
+				height: 0;
+			}
+			
+			.mui-btn-primary {
+				background-color: rgba(0, 0, 0, 0);
+				border: solid 1px white;
+				color: white;
+				outline: none;
+			}
+			
+			.mui-btn-primary:hover,
+			.mui-btn-primary:active,
+			.mui-btn-primary:focus {
+				background-color: white !important;
+				border: solid 1px white !important;
+				color: #3cc4b6;
+				outline: none;
+			}
+			
+			p,
+			a,
+			input,
+			a:active {
+				color: white;
+			}
+			
+			.Auto_login,
+			.mui-icon-clear {
+				color: white !important;
+			}
+			
+			.mui-input-group .mui-input-row:after {
+				background-color: white;
+				right: 15px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+				border-radius: 22px;
+			}
+			
+			.mui-bar {
+				background-color: rgba(0, 0, 0, 0);
+				box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+				-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+			}
+			
+			.mui-title {
+				color: white;
+			}
+			
+			.mui-bar-nav,.mui-content {
+				padding-top: 98px;
+			}
+			
+			input::placeholder {
+				color: white;
+			}
+			
+			input::-moz-placeholder {
+				color: white;
+			}
+			
+			input::-ms-input-placeholder {
+				color: white;
+			}
+			
+			::-webkit-input-placeholder {
+				color: white
+			}
+			.mui-icon{
+				line-height: 2 !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-top">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">Sign Up</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>User</label>
+					<input id='account' type="text" class="mui-input-clear mui-input" placeholder="Enter User">
+				</div>
+				<div class="mui-input-row">
+					<label>Password</label>
+					<input id='password' type="password" class="mui-input-clear mui-input" placeholder="Enter Password">
+				</div>
+				<div class="mui-input-row">
+					<label>Confirm</label>
+					<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="Enter Confirm">
+				</div>
+				<div class="mui-input-row">
+					<label>Emial</label>
+					<input id='email' type="email" class="mui-input-clear mui-input" placeholder="Enter Email">
+				</div>
+			</form>
+			<div class="mui-content-padded">
+				<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">Sign Up</button>
+			</div>
+			<div class="mui-content-padded">
+				<!--<p>注册真实可用，注册成功后的用户可用于登录，但是示例程序并未和服务端交互，用户相关数据仅存储于本地。</p>-->
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+		(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					var settings = app.getSettings();
+					var regButton = doc.getElementById('reg');
+					var accountBox = doc.getElementById('account');
+					var passwordBox = doc.getElementById('password');
+					var passwordConfirmBox = doc.getElementById('password_confirm');
+					var emailBox = doc.getElementById('email');
+					regButton.addEventListener('tap', function(event) {
+						var regInfo = {
+							account: accountBox.value,
+							password: passwordBox.value,
+							email: emailBox.value
+						};
+						var passwordConfirm = passwordConfirmBox.value;
+						if (passwordConfirm != regInfo.password) {
+							plus.nativeUI.toast('The password two times input is inconsistent');
+							return;
+						}
+						app.reg(regInfo, function(err) {
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							plus.nativeUI.toast('Success');
+							/*
+							 * 注意：
+							 * 1、因本示例应用启动页就是登录页面，因此注册成功后，直接显示登录页即可；
+							 * 2、如果真实案例中，启动页不是登录页，则需修改，使用mui.openWindow打开真实的登录页面
+							 */
+							plus.webview.getLaunchWebview().show("pop-in",200,function () {
+								plus.webview.currentWebview().close("none");
+							});
+							//若启动页不是登录页，则需通过如下方式打开登录页
+//							$.openWindow({
+//								url: 'login.html',
+//								id: 'login',
+//								show: {
+//									aniShow: 'pop-in'
+//								}
+//							});
+						});
+					});
+				});
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

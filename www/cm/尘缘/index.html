@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>HOME</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style>
+			
+			.mui-top{
+				background-color:#3cc4b6 ;
+				height: 44px;
+			}
+			.mui-title{
+				color: white;
+				margin: 0 !important;
+				font-weight: normal;
+			}
+			.mui-bar-tab .mui-tab-item.mui-active{
+				color: #3cc4b6;
+			}
+			.mui-bar{
+				box-shadow:0 0 0 rgba(0,0,0,0);
+				-webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+			}
+			.mui-slider-indicator .mui-indicator{
+				background-color: white;
+				box-shadow: 0 0 0 rgba(0,0,0,0);
+				-webkit-box-shadow: 0 0 0 rgba(0,0,0,0);
+			}
+			
+			.mui-slider-indicator .mui-active.mui-indicator{
+				background-color:#3cc4b6 ;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<header class="mui-top">
+			<h1 class="mui-title">HOME</h1>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="index.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">Home</span>
+			</a>
+			<a class="mui-tab-item" >
+				<span class="mui-icon mui-icon-star"><!--<span class="mui-badge">9</span>--></span>
+				<span class="mui-tab-label">Works</span>
+			</a>
+			
+			<a class="mui-tab-item" id="setting">
+				<span class="mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">Me</span>
+			</a>
+		</nav>
+		<div id="slider" class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href=" #">
+						<img src="images/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<a href=" #">
+						<img src="images/shuijiao.jpg">
+					</a>
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<a href=" #">
+						<img src="images/muwu.jpg">
+					</a>
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<a href=" #">
+						<img src="images/cbd.jpg">
+					</a>
+				</div>
+				<!-- 第四张 -->
+				<div class="mui-slider-item">
+					<a href=" #">
+						<img src="images/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href=" #">
+						<img src="images/shuijiao.jpg">
+					</a>
+				</div>
+			</div>
+			<fig class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<figure class="essence"><a href="essence/index.html" ><img src="images/bird.png"></a></figure>
+		<script src=" js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			
+			var slider = mui("#slider");
+			slider.slider({
+						interval: 3000
+					});
+			(function($, doc) {
+				$.init();
+			
+				
+				
+				//链接到下一个页面的js从这里开始，比如链接setting.html,加上a标签的id
+			
+				$.plusReady(function() {
+					var settingPage = $.preload({
+						"id": 'setting',
+						"url": 'essence/index.html'
+					});
+					//设置
+					var settingButton = doc.getElementById('setting');
+					//settingButton.style.display = settings.autoLogin ? 'block' : 'none';
+					settingButton.addEventListener('tap', function(event) {
+						$.openWindow({
+							id: 'setting',
+							show: {
+								aniShow: 'pop-in'
+							},
+							styles: {
+								popGesture: 'hide'
+							},
+							waiting: {
+								autoShow: false
+							}
+						});
+					});
+					//--
+					$.oldBack = mui.back;
+					var backButtonPress = 0;
+					$.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('Press the exit application again');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 1000);
+						return false;
+					};
+				});//链接到下一个页面的js到此结束
+				
+			}(mui, document));
+		</script>
+	</body>
+
+</html>

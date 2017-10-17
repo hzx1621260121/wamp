@@ -1,0 +1,86 @@
+{
+  "index.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "css/app.css",
+      "images/shuijiao.jpg",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "app/html/index.html",
+      "setting.html"
+    ]
+  },
+  "login.html": {
+    "resources": [
+      "js/app.js",
+      "js/mui.min.js",
+      "images/sinaweibo.png",
+      "css/mui.min.css",
+      "css/style.css",
+      "images/weixin.png",
+      "images/qq.png",
+      "js/mui.enterfocus.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "index.html",
+      "reg.html",
+      "forget_password.html"
+    ]
+  },
+  "reg.html": {
+    "resources": [
+      "css/mui.min.css",
+      "css/style.css"
+    ]
+  },
+  "app/html/index.html": {
+    "resources": [
+      "app/images/fenlei03.png",
+      "app/images/fenlei05.png",
+      "app/images/fenlei07.png",
+      "app/images/fenlei04.png",
+      "app/images/city.png",
+      "app/images/home.png",
+      "app/images/fenlei09.png",
+      "app/images/food01.jpg",
+      "app/images/liao.png",
+      "app/images/fenlei10.png",
+      "app/images/fenlei08.png",
+      "app/images/fenlei06.png",
+      "app/images/fenlei01.png",
+      "app/images/starts.png",
+      "app/css/demo.css",
+      "app/js/swiper.min.js",
+      "app/images/geren.png",
+      "app/images/alert.png",
+      "app/images/search.png",
+      "app/images/xian.png",
+      "app/images/lunbo02.png",
+      "app/images/bo.png",
+      "app/images/zhibo.png",
+      "app/images/fenlei02.png",
+      "app/css/swiper.min.css",
+      "app/images/fenmian.jpg",
+      "app/images/xian2.png"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "libs/easymob-webim-sdk/easemob.im-1.0.5.js",
+      "libs/easymob-webim-sdk/json2.js",
+      "libs/easymob-webim-sdk/jquery-1.11.1.js",
+      "js/mui.locker.js",
+      "js/feedback.js",
+      "css/feedback-page.css",
+      "js/feedback-page.js",
+      "libs/easymob-webim-sdk/strophe-custom-2.0.0.js",
+      "js/mui.view.js",
+      "css/mui.min.css"
+    ]
+  }
+}
